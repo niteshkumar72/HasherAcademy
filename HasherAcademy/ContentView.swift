@@ -113,7 +113,11 @@ struct ForgetPasswordText: View {
 
 struct CreateAccountButton: View {
     var body: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+        Button(action: {
+            print("Create an account")
+        }
+        
+        ) {
             Text("Create Account")
                 .frame(width: 200, height: 20)
                 .padding()
