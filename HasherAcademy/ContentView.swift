@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import UIKit
 
 var purple=Color(red: 154/255.0, green: 6/255.0, blue: 128/255.0)
 var lightGreyColor=Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
@@ -19,8 +19,9 @@ struct ContentView: View {
     @State var username:String=""
     @State var password:String=""
     @State var authenticationDidFail:Bool=false
-    
+
     var body: some View {
+        
         NavigationView{
             ZStack{
                 
@@ -48,14 +49,13 @@ struct ContentView: View {
                     }
                     CreateAccountButton()
                     Spacer()
-//                        NavigationLink(destination: ContentUIView()) {
-//                            Text("button")
-//                            .frame( height: 133,alignment: .center)
-//                        }
+                        NavigationLink(destination: ContentUIView()) {
+                            Text("button")
+                            .frame( height: 133,alignment: .center)
+                        }
               
                 }
                 .padding()
-                .ignoresSafeArea()
                 if authenticationDidFail{
                     Text("Information not correct. Try Again.")
                         .offset(y:70)
@@ -63,8 +63,10 @@ struct ContentView: View {
                     
                 }
             }
-            .ignoresSafeArea()
+           
         }
+        .ignoresSafeArea()
+  
     }
 }
 

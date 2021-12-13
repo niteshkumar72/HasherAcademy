@@ -80,7 +80,6 @@ struct HomeView: View {
             
         }
         .ignoresSafeArea()
-        .padding(.top)
     }
 }
 

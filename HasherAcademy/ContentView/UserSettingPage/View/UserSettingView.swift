@@ -23,84 +23,135 @@ struct UserSettingView: View {
             }
             .padding()
             Divider()
-            HStack{
-                Spacer()
-                Image("logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 125, height: 125)
-                    .foregroundColor(purpleBg)
-                    .background(lightGreyColor)
-                    .cornerRadius(5)
-                Spacer()
-            }
-            //            form details
-            VStack{
+            ScrollView{
                 VStack{
+                    
                     HStack{
-                        Text("Name")
-                            .frame( height: 20, alignment: .leading)
+                        Spacer()
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 125, height: 125)
+                            .foregroundColor(purpleBg)
+                            .background(lightGreyColor)
+                            .cornerRadius(5)
                         Spacer()
                     }
-                    TextField("Name",text: $username)
+                    //            form details
+                    VStack{
+                        //                     Mark1:   name
+                        VStack{
+                            HStack{
+                                Text("Name")
+                                    .frame( height: 20, alignment: .leading)
+                                    .font(.title3)
+                                Spacer()
+                            }
+                            TextField("Name",text: $username)
+                                .padding(.vertical)
+                                .background(lightGreyColor)
+                        }
                         .padding(.vertical)
-                        .foregroundColor(.white)
-                        .background(.red)
-                }
-                
-                HStack{
-                    VStack{
-                        Text("Band Name")
-                        TextField("Band name",text: $bandName)
-                            .padding(.vertical)
-                            .foregroundColor(.white)
-                            .background(.red)
-                    }
-                    Spacer()
-                    VStack{
-                        Text("Position")
-                        TextField("position name",text: $bandName)
-                            .padding(.vertical)
-                            .foregroundColor(.white)
-                            .background(.red)
-                    }
-                    
-                }
-                HStack{
-                    VStack{
-                        Text("Skills")
-                        TextField("Mobility",text: $bandName)
-                            .padding(.vertical)
-                            .foregroundColor(.white)
-                            .background(.red)
-                    }
-                    Spacer()
-                    VStack{
-                        Text("Level")
-                        TextField("Expert",text: $bandName)
-                            .padding(.vertical)
-                            .foregroundColor(.white)
-                            .background(.red)
-                    }
-                    
-                }
-                VStack{
-                    HStack{
-                        Text("Bio")
-                            .frame( height: 20, alignment: .leading)
+                        //                        Mark 2 : Band name and Position
+                        VStack{
+                            HStack{
+                                VStack{
+                                    HStack{
+                                        Text("Band Name")
+                                            .font(.title3)
+
+                                        Spacer()
+                                    }
+                                    TextField("Band name",text: $bandName)
+                                        .padding(.vertical)
+                                        .background(lightGreyColor)
+                                }
+                                Spacer()
+                                VStack{
+                                    HStack{
+                                        Text("Position")
+                                            .font(.title3)
+
+                                        Spacer()
+                                    }
+                                    TextField("position name",text: $bandName)
+                                        .padding(.vertical)
+                                        .background(lightGreyColor)
+                                }
+                                
+                            }
+                        }.padding(.vertical)
+                        
+                        //                        Mark 3: Skills and levels
+                        VStack{
+                            HStack{
+                                VStack{
+                                    HStack{
+                                        Text("Skills")
+                                            .font(.title3)
+
+                                        Spacer()
+                                    }
+                                    TextField("Mobility",text: $bandName)
+                                        .padding(.vertical)
+                                        .background(lightGreyColor)
+                                }
+                                Spacer()
+                                VStack{
+                                    HStack{
+                                        Text("Level")
+                                            .font(.title3)
+
+                                        Spacer()
+                                    }
+                                    TextField("Expert",text: $bandName)
+                                        .padding(.vertical)
+                                        .background(lightGreyColor)
+                                }
+                                
+                                
+                            }
+                        }.padding(.vertical)
+//                        Mark 4: Bio
+                        VStack{
+                            HStack{
+                                Text("Bio")
+                                    .frame( height: 20, alignment: .leading)
+                                    .font(.title3)
+
+                                Spacer()
+                            }
+                            TextField("describe yourself",text: $username)
+                                .padding(.vertical)
+                                .background(lightGreyColor)
+                        }
+                        .padding(.vertical)
                         Spacer()
+//                        mark 5: Logout button
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                            Text("Logout")
+                                .bold()
+                                .font(.title)
+                                .frame(width: 150, height: 40, alignment: .center)
+                                .padding(.all,10)
+                                .foregroundColor(.white)
+                                .background(.black)
+                        }
+                        .cornerRadius(15)
+//                        Mark 6 : Version
+                        VStack{
+                            Text("Version 1.0")
+                                .font(.title3)
+                        }
+
+                        
                     }
-                    TextField("describe yourself",text: $username)
-                        .padding(.vertical)
-                        .foregroundColor(.white)
-                        .background(.red)
+                    
+                    Spacer()
                 }
-                
-                
-            }
+            }        .padding()
             
-            Spacer()
-        }
+        }.ignoresSafeArea()
     }
 }
 

@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentUIView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.lightGray
+     }
     var body: some View {
             TabView{
                 HomeView()
@@ -29,9 +33,7 @@ struct ContentUIView: View {
                     }
             }
             .accentColor(.red)
-            .ignoresSafeArea()
-        }
-    
+    }
 }
 
 struct ContentUIView_Previews: PreviewProvider {
