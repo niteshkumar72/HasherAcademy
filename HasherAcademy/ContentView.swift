@@ -21,44 +21,50 @@ struct ContentView: View {
     @State var authenticationDidFail:Bool=false
     
     var body: some View {
-        ZStack{
-           
-            VStack{
-                Spacer()
-                CompanyLogo()
-               
-                UsernameTextField(username: $username)
-                PasswordTextField(password: $password)
-                HStack{
-                    Button(action: {
-                        if self.username==StoredUsername && self.password == StoredPassword{
-                            authenticationDidFail=false
-                        }else{
-                            authenticationDidFail=true;
+        NavigationView{
+            ZStack{
+                
+                VStack{
+                    Spacer()
+                    CompanyLogo()
+                    
+                    UsernameTextField(username: $username)
+                    PasswordTextField(password: $password)
+                    HStack{
+                        Button(action: {
+                            if self.username==StoredUsername && self.password == StoredPassword{
+                                authenticationDidFail=false
+                            }else{
+                                authenticationDidFail=true;
+                            }
+                        }) {
+                            LoginButtonText()
                         }
-                    }) {
-                    LoginButtonText()
+                        .cornerRadius(15.0)
+                        .padding(.bottom,10)
+                        Spacer()
+                        ForgetPasswordText()
+                        
+                    }
+                    CreateAccountButton()
+                    Spacer()
+//                        NavigationLink(destination: ContentUIView()) {
+//                            Text("button")
+//                            .frame( height: 133,alignment: .center)
+//                        }
+              
                 }
-                .cornerRadius(15.0)
-                .padding(.bottom,10)
-                Spacer()
-                    ForgetPasswordText()
+                .padding()
+                .ignoresSafeArea()
+                if authenticationDidFail{
+                    Text("Information not correct. Try Again.")
+                        .offset(y:70)
+                        .foregroundColor(.red)
                     
                 }
-                CreateAccountButton()
-                Spacer()
-                
             }
-            .padding()
             .ignoresSafeArea()
-            if authenticationDidFail{
-                Text("Information not correct. Try Again.")
-                    .offset(y:70)
-                    .foregroundColor(.red)
-                
-            }
         }
-        .ignoresSafeArea()
     }
 }
 
@@ -116,7 +122,7 @@ struct CreateAccountButton: View {
         Button(action: {
             print("Create an account")
         }
-        
+               
         ) {
             Text("Create Account")
                 .frame(width: 200, height: 20)

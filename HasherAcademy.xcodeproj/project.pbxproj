@@ -12,6 +12,11 @@
 		C88008732765DD84007CCF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88008722765DD84007CCF66 /* Assets.xcassets */; };
 		C88008762765DD84007CCF66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88008752765DD84007CCF66 /* Preview Assets.xcassets */; };
 		C880087E2765DDFB007CCF66 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C880087D2765DDFB007CCF66 /* Launch Screen.storyboard */; };
+		C880088127667E4F007CCF66 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088027667E4F007CCF66 /* HomeModel.swift */; };
+		C880088627667EAA007CCF66 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088527667EAA007CCF66 /* HomeView.swift */; };
+		C88008902766810D007CCF66 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088F2766810C007CCF66 /* UserSettingView.swift */; };
+		C880089227668121007CCF66 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880089127668121007CCF66 /* WishlistView.swift */; };
+		C88008952766818B007CCF66 /* ContentUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88008942766818B007CCF66 /* ContentUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		C88008722765DD84007CCF66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C88008752765DD84007CCF66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C880087D2765DDFB007CCF66 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		C880088027667E4F007CCF66 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		C880088527667EAA007CCF66 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C880088F2766810C007CCF66 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		C880089127668121007CCF66 /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		C88008942766818B007CCF66 /* ContentUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 		C880086D2765DD83007CCF66 /* HasherAcademy */ = {
 			isa = PBXGroup;
 			children = (
+				C88008932766816F007CCF66 /* ContentView */,
 				C880087C2765DDEA007CCF66 /* LaunchScreen */,
 				C880086E2765DD83007CCF66 /* HasherAcademyApp.swift */,
 				C88008702765DD83007CCF66 /* ContentView.swift */,
@@ -76,6 +87,114 @@
 				C880087D2765DDFB007CCF66 /* Launch Screen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		C880087F27667E28007CCF66 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				C880088427667E8E007CCF66 /* ViewModel */,
+				C880088327667E81007CCF66 /* View */,
+				C880088227667E6E007CCF66 /* Model */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		C880088227667E6E007CCF66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C880088027667E4F007CCF66 /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C880088327667E81007CCF66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C880088527667EAA007CCF66 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C880088427667E8E007CCF66 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C88008872766808E007CCF66 /* WishlistPage */ = {
+			isa = PBXGroup;
+			children = (
+				C880088B276680CF007CCF66 /* ViewModel */,
+				C880088A276680C7007CCF66 /* Model */,
+				C8800889276680BA007CCF66 /* View */,
+			);
+			path = WishlistPage;
+			sourceTree = "<group>";
+		};
+		C8800888276680A0007CCF66 /* UserSettingPage */ = {
+			isa = PBXGroup;
+			children = (
+				C880088E276680F1007CCF66 /* ViewModel */,
+				C880088D276680EB007CCF66 /* Model */,
+				C880088C276680E5007CCF66 /* View */,
+			);
+			path = UserSettingPage;
+			sourceTree = "<group>";
+		};
+		C8800889276680BA007CCF66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C880089127668121007CCF66 /* WishlistView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C880088A276680C7007CCF66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C880088B276680CF007CCF66 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C880088C276680E5007CCF66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C880088F2766810C007CCF66 /* UserSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C880088D276680EB007CCF66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C880088E276680F1007CCF66 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C88008932766816F007CCF66 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				C8800888276680A0007CCF66 /* UserSettingPage */,
+				C88008872766808E007CCF66 /* WishlistPage */,
+				C880087F27667E28007CCF66 /* HomePage */,
+				C88008942766818B007CCF66 /* ContentUIView.swift */,
+			);
+			path = ContentView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88008902766810D007CCF66 /* UserSettingView.swift in Sources */,
+				C880089227668121007CCF66 /* WishlistView.swift in Sources */,
 				C88008712765DD83007CCF66 /* ContentView.swift in Sources */,
+				C88008952766818B007CCF66 /* ContentUIView.swift in Sources */,
+				C880088627667EAA007CCF66 /* HomeView.swift in Sources */,
 				C880086F2765DD83007CCF66 /* HasherAcademyApp.swift in Sources */,
+				C880088127667E4F007CCF66 /* HomeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
