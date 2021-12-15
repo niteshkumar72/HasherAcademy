@@ -19,16 +19,20 @@ struct ContentView: View {
     @State var username:String=""
     @State var password:String=""
     @State var authenticationDidFail:Bool=false
-
+    
     var body: some View {
-        
         NavigationView{
-            ZStack{
-                
+            ScrollView{
+                Spacer()
                 VStack{
                     Spacer()
                     CompanyLogo()
-                    
+                    if authenticationDidFail{
+                        Text("Information not correct. Try Again.")
+                            .offset(y:70)
+                            .foregroundColor(.red)
+                            .padding()
+                    }
                     UsernameTextField(username: $username)
                     PasswordTextField(password: $password)
                     HStack{
@@ -44,29 +48,21 @@ struct ContentView: View {
                         .cornerRadius(15.0)
                         .padding(.bottom,10)
                         Spacer()
-                        ForgetPasswordText()
                         
+                        NavigationLink(destination:ContentUIView()) {
+                            ForgetPasswordText()
+                        }
                     }
                     CreateAccountButton()
                     Spacer()
-                        NavigationLink(destination: ContentUIView()) {
-                            Text("button")
-                            .frame( height: 133,alignment: .center)
-                        }
-              
-                }
-                .padding()
-                if authenticationDidFail{
-                    Text("Information not correct. Try Again.")
-                        .offset(y:70)
-                        .foregroundColor(.red)
+                    //                    testing navigation bar
+                    TestingNavView()
                     
                 }
             }
-           
+            .padding(.horizontal)
         }
-        .ignoresSafeArea()
-  
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -142,7 +138,7 @@ struct LoginButtonText: View {
         Text("LOGIN")
             .bold()
             .font(.title)
-            .frame(width: 150, height: 40, alignment: .center)
+            .frame(width: 120, height: 30, alignment: .center)
             .padding(.all,10)
             .foregroundColor(.white)
             .background(purple)

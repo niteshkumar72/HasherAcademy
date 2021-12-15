@@ -7,32 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C824FA66276988680073E47F /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824FA65276988680073E47F /* HomePageViewModel.swift */; };
 		C880086F2765DD83007CCF66 /* HasherAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880086E2765DD83007CCF66 /* HasherAcademyApp.swift */; };
 		C88008712765DD83007CCF66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88008702765DD83007CCF66 /* ContentView.swift */; };
 		C88008732765DD84007CCF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88008722765DD84007CCF66 /* Assets.xcassets */; };
 		C88008762765DD84007CCF66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88008752765DD84007CCF66 /* Preview Assets.xcassets */; };
 		C880087E2765DDFB007CCF66 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C880087D2765DDFB007CCF66 /* Launch Screen.storyboard */; };
-		C880088127667E4F007CCF66 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088027667E4F007CCF66 /* HomeModel.swift */; };
+		C880088127667E4F007CCF66 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088027667E4F007CCF66 /* Product.swift */; };
 		C880088627667EAA007CCF66 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088527667EAA007CCF66 /* HomeView.swift */; };
 		C88008902766810D007CCF66 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880088F2766810C007CCF66 /* UserSettingView.swift */; };
 		C880089227668121007CCF66 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880089127668121007CCF66 /* WishlistView.swift */; };
 		C88008952766818B007CCF66 /* ContentUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88008942766818B007CCF66 /* ContentUIView.swift */; };
 		C8A2B7F72767B35600739E30 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2B7F62767B35600739E30 /* CourseDetailView.swift */; };
+		C8AA8A5A2768AF66006AC595 /* TestingNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA8A592768AF66006AC595 /* TestingNavView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C824FA65276988680073E47F /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		C880086B2765DD83007CCF66 /* HasherAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HasherAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C880086E2765DD83007CCF66 /* HasherAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasherAcademyApp.swift; sourceTree = "<group>"; };
 		C88008702765DD83007CCF66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C88008722765DD84007CCF66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C88008752765DD84007CCF66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C880087D2765DDFB007CCF66 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		C880088027667E4F007CCF66 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		C880088027667E4F007CCF66 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C880088527667EAA007CCF66 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C880088F2766810C007CCF66 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
 		C880089127668121007CCF66 /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		C88008942766818B007CCF66 /* ContentUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUIView.swift; sourceTree = "<group>"; };
 		C8A2B7F62767B35600739E30 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		C8AA8A592768AF66006AC595 /* TestingNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingNavView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 		C880086D2765DD83007CCF66 /* HasherAcademy */ = {
 			isa = PBXGroup;
 			children = (
+				C8AA8A582768AF4C006AC595 /* testingView */,
 				C88008932766816F007CCF66 /* ContentView */,
 				C880087C2765DDEA007CCF66 /* LaunchScreen */,
 				C880086E2765DD83007CCF66 /* HasherAcademyApp.swift */,
@@ -105,7 +110,7 @@
 		C880088227667E6E007CCF66 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C880088027667E4F007CCF66 /* HomeModel.swift */,
+				C880088027667E4F007CCF66 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 		C880088427667E8E007CCF66 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C824FA65276988680073E47F /* HomePageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,6 +238,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C8AA8A582768AF4C006AC595 /* testingView */ = {
+			isa = PBXGroup;
+			children = (
+				C8AA8A592768AF66006AC595 /* TestingNavView.swift */,
+			);
+			path = testingView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,13 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8A2B7F72767B35600739E30 /* CourseDetailView.swift in Sources */,
+				C8AA8A5A2768AF66006AC595 /* TestingNavView.swift in Sources */,
 				C88008902766810D007CCF66 /* UserSettingView.swift in Sources */,
 				C880089227668121007CCF66 /* WishlistView.swift in Sources */,
+				C824FA66276988680073E47F /* HomePageViewModel.swift in Sources */,
 				C88008712765DD83007CCF66 /* ContentView.swift in Sources */,
 				C88008952766818B007CCF66 /* ContentUIView.swift in Sources */,
 				C880088627667EAA007CCF66 /* HomeView.swift in Sources */,
 				C880086F2765DD83007CCF66 /* HasherAcademyApp.swift in Sources */,
-				C880088127667E4F007CCF66 /* HomeModel.swift in Sources */,
+				C880088127667E4F007CCF66 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
