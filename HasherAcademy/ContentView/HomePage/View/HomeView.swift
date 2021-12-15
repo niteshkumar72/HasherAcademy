@@ -24,6 +24,7 @@ struct HomeView: View {
     @Binding var favorites:[Product]
     var body: some View {
             VStack{
+                TopNav(cart: $cart)
                     SearchView(search:$searchItem)
                 
                 List(products) { data in
@@ -103,15 +104,34 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 struct TopNav: View {
+    @Binding var cart:[Product]
     var body: some View {
         HStack{
             Text("Courses")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
             Spacer()
-            Image(systemName: "cart.fill")
-                .resizable()
-                .frame(width: 35, height: 35, alignment: .center)
+            HStack{
+                Spacer()
+                ZStack{
+                Image(systemName: "cart.fill")
+                    .resizable()
+                    .frame(width: 45, height: 45)
+                    .clipShape(Rectangle())
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(.green)
+                    .cornerRadius(20)
+                    
+                    Text("\($cart.count)")
+                        .padding(.all,10)
+                        .font(.body)
+                        .background(.red)
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                        .offset(x:14,y:-20)
+                    
+                }
+            }
         }
         .padding(.top,30)
         .padding(.horizontal)

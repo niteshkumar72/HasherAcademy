@@ -11,7 +11,10 @@ struct WishlistView: View {
     @Binding var favorites:[Product]
     var body: some View {
         VStack{
-            Text("Helo")
+            if favorites.count == 0 {
+                Text("You have no wishlist")
+            }
+            else{
             List(favorites) { data in
 //                NavigationLink(destination:UserSettingView()){
                     VStack{
@@ -51,6 +54,7 @@ struct WishlistView: View {
 //                }
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+            }
             }
         }
     }

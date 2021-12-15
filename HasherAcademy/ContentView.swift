@@ -55,8 +55,6 @@ struct ContentView: View {
                     }
                     CreateAccountButton()
                     Spacer()
-                    //                    testing navigation bar
-                    TestingNavView()
                     
                 }
             }

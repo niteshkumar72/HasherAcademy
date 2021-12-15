@@ -14,27 +14,6 @@ struct CourseDetailView: View {
     
     var body: some View {
         VStack{
-            HStack{
-                Spacer()
-                ZStack{
-                Image(systemName: "cart.fill")
-                    .resizable()
-                    .frame(width: 45, height: 45)
-                    .clipShape(Rectangle())
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(.green)
-                    .cornerRadius(20)
-                    
-                    Text("4")
-                        .padding(.all,10)
-                        .font(.body)
-                        .background(.red)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                        .offset(x:14,y:-20)
-                    
-                }
-            }
             VStack{
                 Image(product.imgName)
                     .resizable()
