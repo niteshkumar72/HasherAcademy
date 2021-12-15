@@ -22,16 +22,21 @@ struct HomeView: View {
     @Binding var products:[Product]
     @Binding var cart:[Product]
     @Binding var favorites:[Product]
+    
+    let datas=DataSource
     var body: some View {
             VStack{
                 TopNav(cart: $cart)
                     SearchView(search:$searchItem)
                 
-                List(products) { data in
-                    NavigationLink(destination:CourseDetailView(product: data, cart: self.$cart, favorites: self.$favorites)){
+                List{
+                    ForEach(result){
+                        prdName in
+//                    data in
+                    NavigationLink(destination:CourseDetailView(product: prdName, cart: self.$cart, favorites: self.$favorites)){
                     VStack{
                         HStack{
-                            Image(data.imgName)
+                            Image(prdName.imgName)
                                 .resizable()
                                 .aspectRatio( contentMode: .fill)
                                 .frame(width: 80, height: 80)
@@ -39,28 +44,29 @@ struct HomeView: View {
                             Spacer()
                             VStack{
                                 HStack{
-                                    Text(data.title)
+                                    Text(prdName.title)
                                     .font(.title3)
                                     .fontWeight(.bold)
                                     .frame(height: 45, alignment: .leading)
                                     Spacer()
                                 }
-                                Text(data.descritption)
+                                Text(prdName.descritption)
                                     .font(.body)
                                     .frame( height: 50, alignment: .leading)
                                     .offset(y:-12)
                             }
                             Spacer()
                             VStack{
-                                Text("$ \(data.price)")
+                                Text("$ \(prdName.price)")
                                     .fontWeight(.semibold)
                                     .frame(width: 80, height: 20, alignment: .center)
                                     .font(.title3)
-                                Text("$ \(data.originalPrice)")
+                                Text("$ \(prdName.originalPrice)")
                                     .strikethrough(true)
                                 
                             }
                         }
+                    }
                     }
                     
                 }
@@ -68,9 +74,18 @@ struct HomeView: View {
                     
                 }
                 .listStyle(PlainListStyle())
+                .searchable(text: $searchItem)
+                
                 
             }
         }
+    var result:[Product]{
+        if(searchItem.isEmpty){
+            return products
+        }else{
+            return products.filter{($0.title).contains(searchItem)}
+        }
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
