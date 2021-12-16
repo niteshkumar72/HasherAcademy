@@ -9,43 +9,11 @@ import SwiftUI
 import UIKit
 
 struct ContentUIView: View {
-    var product:Product =
-        Product(
-            id:"product123",
-            imgName: "logo",
-            title: "SwiftUI learning by nitesh kumar",
-            descritption: "A friendly-looking, tentacled space creature with two eyes.",
-            price: "123",
-            originalPrice: "99"
-        )
-    @State var items:[Product] = [
-        Product(
-            id:"product01",
-            imgName: "logo",
-            title: "SwiftUI learning by nitesh kumar",
-            descritption: "A friendly-looking, tentacled space creature with two eyes.",
-            price: "123",
-            originalPrice: "99"
-        ),
-        Product(
-            id:"product02",
-            imgName: "logo",
-            title: "hello Brother",
-            descritption: "Atentacled space creature with two eyes.",
-            price: "139",
-            originalPrice: "299"
-        ),
-        Product(
-            id:"product03",
-            imgName: "logo",
-            title: "Hacker bro",
-            descritption: "Learn ethical hacking with nitesh kumar.",
-            price: "123",
-            originalPrice: "999"
-        )
-    ]
+    var product:Product = DataSource[0]
+    @State var items:[Product] = DataSource
     @State var cart:[Product]=[]
     @State var favorites:[Product]=[]
+    var purpleClr=Color(red: 154/255.0, green: 6/255.0, blue: 128/255.0)
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
@@ -74,7 +42,7 @@ struct ContentUIView: View {
                         Text("Profile")
                     }.tag(2)
             }
-            .accentColor(.red)
+            .accentColor(purpleClr)
     }
 }
 

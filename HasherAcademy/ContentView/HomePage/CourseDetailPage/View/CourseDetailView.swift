@@ -11,6 +11,7 @@ struct CourseDetailView: View {
     var product:Product
     @Binding var cart:[Product]
     @Binding var favorites:[Product]
+    var purpleBg=Color(red: 154/255.0, green: 6/255.0, blue: 128/255.0)
     
     var body: some View {
         VStack{
@@ -18,7 +19,6 @@ struct CourseDetailView: View {
                 Image(product.imgName)
                     .resizable()
                     .aspectRatio(contentMode:.fit)
-                    .background(.green)
                 
 //                Mark 2: Title
                 Text(product.title)
@@ -28,16 +28,10 @@ struct CourseDetailView: View {
 //                Mark 3: courseDetails
                 Text(product.descritption)
                     .padding(.vertical)
-
             }
             Spacer()
             VStack{
                 HStack{
-//                Image(systemName: "heart.square.fill")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame( height: 60, alignment: .leading)
-//                        .foregroundColor(.green)
                     Button(action: {
                         if self.favorites.contains(where: { (fav) -> Bool in
                             fav.id == self.product.id
@@ -48,38 +42,28 @@ struct CourseDetailView: View {
                         } else {
                             self.favorites.append(self.product)
                         }
-                        
-                        
-                        
                     }) {
                         if self.favorites.contains(where: { (fav) -> Bool in
                             fav.id == product.id
                         }) {
-                            Image(systemName: "heart.fill")
-                            .foregroundColor(Color.red)
-                            .frame(width: 40, height: 40, alignment: .center)
+                            
+                            Image(systemName:"heart.fill")
+                            .foregroundColor(purpleBg)
+                            .frame(width: 50, height: 50, alignment: .center)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                         } else {
+                            
                             Image(systemName: "heart")
                             .foregroundColor(Color.black)
-                            .frame(width: 40, height: 40, alignment: .center)
+                            .frame(width: 50, height: 50, alignment: .center)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
+                            
                         }
                         
                     }
                     Spacer()
-//                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-//                    Text("ADD TO CART")
-//                        .bold()
-//                        .font(.title)
-//                        .aspectRatio(contentMode: .fill)
-//                        .padding()
-//                        .foregroundColor(.white)
-//                        .background(.green)
-//                }.
-//                    cornerRadius(15)
                     Button(action: {
                         if self.cart.contains(where: { (prod) -> Bool in
                             prod.id == self.product.id
@@ -99,7 +83,7 @@ struct CourseDetailView: View {
                                 Image(systemName: "checkmark")
                             }
                             .padding(.horizontal, 40)
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 15)
                             .foregroundColor(Color.white)
                             .font(Font.system(size: 17, weight: .semibold, design: .rounded))
                             .background(Color.gray)
@@ -110,17 +94,16 @@ struct CourseDetailView: View {
                                 Image(systemName: "cart.fill")
                             }
                             .padding(.horizontal, 40)
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 15)
                             .foregroundColor(Color.white)
                             .font(Font.system(size: 17, weight: .semibold, design: .rounded))
-                            .background(Color(red: 111/255, green: 115/255, blue: 210/255))
+                            .background(purpleBg)
                             .cornerRadius(10)
                         }
-                        
                     }
-                    
                 }
                 .padding(.horizontal)
+                .padding(.bottom,20)
             }
         }
 //        .navigationBarHidden(true)
@@ -129,24 +112,8 @@ struct CourseDetailView: View {
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
-    static var product:Product=Product(
-            id:"product6",
-            imgName: "logo",
-            title: "SwiftUI learning by nitesh kumar",
-            descritption: "A friendly-looking, tentacled space creature with two eyes.",
-            price: "123",
-            originalPrice: "99"
-        )
-  @State  static var cart:[Product] = [
-    Product(
-        id:"product123",
-        imgName: "logo",
-        title: "SwiftUI learning by nitesh kumar",
-        descritption: "A friendly-looking, tentacled space creature with two eyes.",
-        price: "123",
-        originalPrice: "99"
-    )
-]
+    static var product:Product=DataSource[0]
+  @State  static var cart:[Product] = DataSource
     @State static var favorites:[Product]=[]
     
     static var previews: some View {

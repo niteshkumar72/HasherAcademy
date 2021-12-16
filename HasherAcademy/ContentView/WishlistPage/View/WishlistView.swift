@@ -9,10 +9,50 @@ import SwiftUI
 
 struct WishlistView: View {
     @Binding var favorites:[Product]
+    
     var body: some View {
         VStack{
+            HStack{
+                Text("Wishlist")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                Spacer()
+                HStack{
+                    Spacer()
+                    ZStack{
+                        Image(systemName: "heart.square.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Rectangle())
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(purpleBg)
+                            .cornerRadius(20)
+                        
+                        Text("\(favorites.count)")
+                            .padding(.all,10)
+                            .font(.body)
+                            .background(.red)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                            .offset(x:14,y:-20)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            Spacer()
             if favorites.count == 0 {
-                Text("You have no wishlist")
+                VStack{
+                Image(systemName: "bag.fill")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Rectangle())
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(purpleBg)
+                    .cornerRadius(20)
+
+                Text("Wishlist empty")
+                }
+                Spacer()
             }
             else{
             List(favorites) { data in
@@ -54,7 +94,8 @@ struct WishlistView: View {
 //                }
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
-            }
+            }                    .listStyle(PlainListStyle())
+
             }
         }
     }

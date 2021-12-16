@@ -19,7 +19,8 @@ struct ContentView: View {
     @State var username:String=""
     @State var password:String=""
     @State var authenticationDidFail:Bool=false
-    
+    @State var authenticationDidSuccess:Bool=false
+    @State var nextPage:Bool=false
     var body: some View {
         NavigationView{
             ScrollView{
@@ -29,116 +30,120 @@ struct ContentView: View {
                     CompanyLogo()
                     if authenticationDidFail{
                         Text("Information not correct. Try Again.")
-                            .offset(y:70)
                             .foregroundColor(.red)
-                            .padding()
                     }
-                    UsernameTextField(username: $username)
-                    PasswordTextField(password: $password)
-                    HStack{
-                        Button(action: {
-                            if self.username==StoredUsername && self.password == StoredPassword{
-                                authenticationDidFail=false
-                            }else{
-                                authenticationDidFail=true;
+                        UsernameTextField(username: $username)
+                        PasswordTextField(password: $password)
+                        HStack{
+                            Button(action: {
+                                if self.username==StoredUsername && self.password == StoredPassword{
+                                    self.authenticationDidSuccess=true
+                                    
+                                }else{
+                                    self.authenticationDidFail=true;
+                                }
+                            }) {
+                                if(self.authenticationDidSuccess){
+                                    NavigationLink(destination:ContentUIView()) {
+                                        LoginButtonText()
+                                    }
+                                } else{
+                                    LoginButtonText()
+                                }
                             }
-                        }) {
-                            LoginButtonText()
-                        }
-                        .cornerRadius(15.0)
-                        .padding(.bottom,10)
-                        Spacer()
-                        
-                        NavigationLink(destination:ContentUIView()) {
+                            .cornerRadius(15.0)
+                            .padding(.bottom,10)
+                            Spacer()
+                            NavigationLink(destination:ContentUIView()) {
                             ForgetPasswordText()
+                            }
                         }
+                        CreateAccountButton()
+                        Spacer()
                     }
-                    CreateAccountButton()
-                    Spacer()
-                    
                 }
+                .padding(.horizontal)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarHidden(true)
             }
-            .padding(.horizontal)
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewInterfaceOrientation(.portrait)
-    }
-}
-
-
-struct CompanyLogo: View {
-    var body: some View {
-        Image("logo")
-            .resizable()
-            .aspectRatio( contentMode: .fill)
-            .frame(width: 150, height: 150)
-            .clipped()
-            .cornerRadius(150)
-    }
-}
-
-struct UsernameTextField: View {
-    @Binding var username:String
-    var body: some View {
-        TextField("Username", text: $username)
-            .padding()
-            .background(lightGreyColor)
-            .cornerRadius(5.0)
-    }
-}
-
-struct PasswordTextField: View {
-    @Binding var password:String
-    var body: some View {
-        SecureField("Password",text: $password)
-            .padding()
-            .background(lightGreyColor)
-            .cornerRadius(5.0)
-            .padding(.bottom,15)
-    }
-}
-
-struct ForgetPasswordText: View {
-    var body: some View {
-        Text("Forget password!")
-            .foregroundColor(.accentColor)
-            .font(.body)
-            .fontWeight(.semibold)
-    }
-}
-
-struct CreateAccountButton: View {
-    var body: some View {
-        Button(action: {
-            print("Create an account")
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .previewInterfaceOrientation(.portrait)
         }
-               
-        ) {
-            Text("Create Account")
-                .frame(width: 200, height: 20)
+    }
+    
+    
+    struct CompanyLogo: View {
+        var body: some View {
+            Image("logo")
+                .resizable()
+                .aspectRatio( contentMode: .fill)
+                .frame(width: 150, height: 150)
+                .clipped()
+                .cornerRadius(150)
+        }
+    }
+    
+    struct UsernameTextField: View {
+        @Binding var username:String
+        var body: some View {
+            TextField("Username", text: $username)
                 .padding()
                 .background(lightGreyColor)
-                .foregroundColor(.black)
-            
+                .cornerRadius(5.0)
         }
-        .cornerRadius(15)
     }
-}
-
-struct LoginButtonText: View {
-    var body: some View {
-        Text("LOGIN")
-            .bold()
-            .font(.title)
-            .frame(width: 120, height: 30, alignment: .center)
-            .padding(.all,10)
-            .foregroundColor(.white)
-            .background(purple)
+    
+    struct PasswordTextField: View {
+        @Binding var password:String
+        var body: some View {
+            SecureField("Password",text: $password)
+                .padding()
+                .background(lightGreyColor)
+                .cornerRadius(5.0)
+                .padding(.bottom,15)
+        }
     }
-}
+    
+    struct ForgetPasswordText: View {
+        var body: some View {
+            Text("Forget password!")
+                .foregroundColor(.accentColor)
+                .font(.body)
+                .fontWeight(.semibold)
+        }
+    }
+    
+    struct CreateAccountButton: View {
+        var body: some View {
+            Button(action: {
+                print("Create an account")
+            }
+                   
+            ) {
+                Text("Create Account")
+                    .frame(width: 200, height: 20)
+                    .padding()
+                    .background(lightGreyColor)
+                    .foregroundColor(.black)
+                
+            }
+            .cornerRadius(15)
+        }
+    }
+    
+    struct LoginButtonText: View {
+        var body: some View {
+            Text("LOGIN")
+                .bold()
+                .font(.title)
+                .frame(width: 120, height: 30, alignment: .center)
+                .padding(.all,10)
+                .foregroundColor(.white)
+                .background(purple)
+        }
+    }
