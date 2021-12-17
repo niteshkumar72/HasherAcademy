@@ -38,6 +38,7 @@ struct WishlistView: View {
                     }
                 }
             }
+            .padding(.vertical,30)
             .padding(.horizontal)
             Spacer()
             if favorites.count == 0 {
@@ -80,11 +81,11 @@ struct WishlistView: View {
                             }
                             Spacer()
                             VStack{
-                                Text("$ \(data.price)")
+                                Text("₹ \(data.price)")
                                     .fontWeight(.semibold)
                                     .frame(width: 80, height: 20, alignment: .center)
                                     .font(.title3)
-                                Text("$ \(data.originalPrice)")
+                                Text("\(data.originalPrice)/-")
                                     .strikethrough(true)
 
                             }
@@ -92,12 +93,12 @@ struct WishlistView: View {
                     }
 
 //                }
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-            }                    .listStyle(PlainListStyle())
-
+            }
+            .listStyle(PlainListStyle())
             }
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
     

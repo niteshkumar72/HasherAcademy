@@ -105,6 +105,7 @@ struct CourseDetailView: View {
                 .padding(.horizontal)
                 .padding(.bottom,20)
             }
+            .padding(.horizontal)
         }
 //        .navigationBarHidden(true)
 //        .navigationBarBackButtonHidden(true)

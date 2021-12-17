@@ -23,7 +23,7 @@ struct UserSettingView: View {
     var body: some View {
         
         VStack{
-            TopNavBar()
+            TopNavBar(disableTextField:$disableTextField)
                 .padding(.top,30)
             
             Divider()
@@ -36,10 +36,10 @@ struct UserSettingView: View {
                         //                     Mark1:   name
                         NameView(username:$username,disableTextField:$disableTextField)
                         //                        Mark 2 : Band name and Position
-                        brandAndPositionView(bandName:$bandName,position:$position)
+                        brandAndPositionView(bandName:$bandName,position:$position,disableTextField:$disableTextField)
                         
                         //                        Mark 3: Skills and levels
-                        SkillsAndLevelsView(skills:$skills,level:$level)
+                        SkillsAndLevelsView(skills:$skills,level:$level,disableTextField:$disableTextField)
                         //                        Mark 4: Bio
                         BioView(bio:$bio,disableTextField:$disableTextField)
                         Spacer()
@@ -118,6 +118,8 @@ struct NameView: View {
 struct brandAndPositionView: View {
     @Binding var bandName:String
     @Binding var position:String
+    @Binding var disableTextField:Bool
+
     var body: some View {
         VStack{
             HStack{
@@ -132,6 +134,7 @@ struct brandAndPositionView: View {
                         .padding(.vertical)
                         .background(lightGreyColor)
                         .cornerRadius(5)
+                        .disabled(disableTextField)
                     
                 }
                 Spacer()
@@ -147,6 +150,7 @@ struct brandAndPositionView: View {
                         .padding(.vertical)
                         .background(lightGreyColor)
                         .cornerRadius(5)
+                        .disabled(disableTextField)
                     
                 }
                 
@@ -158,6 +162,8 @@ struct brandAndPositionView: View {
 struct SkillsAndLevelsView: View {
     @Binding var skills:String
     @Binding var level:String
+    @Binding var disableTextField:Bool
+
     var body: some View {
         VStack{
             HStack{
@@ -173,6 +179,7 @@ struct SkillsAndLevelsView: View {
                         .padding(.vertical)
                         .background(lightGreyColor)
                         .cornerRadius(5)
+                        .disabled(disableTextField)
                     
                 }
                 Spacer()
@@ -188,6 +195,7 @@ struct SkillsAndLevelsView: View {
                         .padding(.vertical)
                         .background(lightGreyColor)
                         .cornerRadius(5)
+                        .disabled(disableTextField)
                     
                 }
                 
@@ -213,7 +221,7 @@ struct BioView: View {
                 .padding(.vertical)
                 .background(lightGreyColor)
                 .cornerRadius(5)
-                .disabled(false)
+                .disabled(disableTextField)
             
         }
     }
@@ -243,7 +251,7 @@ struct VersionTextView: View {
 }
 
 struct TopNavBar: View {
-    @State var imageName = "square.and.pencil"
+    @Binding var disableTextField:Bool
     var body: some View {
         HStack{
             Text("Profile")
@@ -252,8 +260,9 @@ struct TopNavBar: View {
             Spacer()
             Button(action: {
                 print("hello")
+                self.disableTextField = !self.disableTextField
             }) {
-                if(1==1){
+                if(disableTextField){
                     HStack{
                         Text("Edit")
                             .offset(x:20,y:1)
