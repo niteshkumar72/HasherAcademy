@@ -110,6 +110,8 @@ struct NameView: View {
                 .background(lightGreyColor)
                 .cornerRadius(5)
                 .disabled(disableTextField)
+                .colorScheme(.light)
+
         }
         .padding(.top)
     }
@@ -119,13 +121,14 @@ struct brandAndPositionView: View {
     @Binding var bandName:String
     @Binding var position:String
     @Binding var disableTextField:Bool
-
+    
     var body: some View {
         VStack{
             HStack{
                 VStack{
                     HStack{
-                        Text("Band Name")                    .fontWeight(.medium)
+                        Text("Band Name")
+                            .fontWeight(.medium)
                             .font(.title2)
                         
                         Spacer()
@@ -135,7 +138,8 @@ struct brandAndPositionView: View {
                         .background(lightGreyColor)
                         .cornerRadius(5)
                         .disabled(disableTextField)
-                    
+                        .colorScheme(.light)
+
                 }
                 Spacer()
                 VStack{
@@ -151,7 +155,8 @@ struct brandAndPositionView: View {
                         .background(lightGreyColor)
                         .cornerRadius(5)
                         .disabled(disableTextField)
-                    
+                        .colorScheme(.light)
+
                 }
                 
             }
@@ -163,7 +168,7 @@ struct SkillsAndLevelsView: View {
     @Binding var skills:String
     @Binding var level:String
     @Binding var disableTextField:Bool
-
+    
     var body: some View {
         VStack{
             HStack{
@@ -180,7 +185,8 @@ struct SkillsAndLevelsView: View {
                         .background(lightGreyColor)
                         .cornerRadius(5)
                         .disabled(disableTextField)
-                    
+                        .colorScheme(.light)
+
                 }
                 Spacer()
                 VStack{
@@ -196,7 +202,8 @@ struct SkillsAndLevelsView: View {
                         .background(lightGreyColor)
                         .cornerRadius(5)
                         .disabled(disableTextField)
-                    
+                        .colorScheme(.light)
+
                 }
                 
                 
@@ -222,6 +229,7 @@ struct BioView: View {
                 .background(lightGreyColor)
                 .cornerRadius(5)
                 .disabled(disableTextField)
+                .colorScheme(.light)
             
         }
     }
@@ -249,7 +257,9 @@ struct VersionTextView: View {
         }
     }
 }
-
+extension Color {
+    static let editColor = Color("EditColor")
+}
 struct TopNavBar: View {
     @Binding var disableTextField:Bool
     var body: some View {
@@ -266,6 +276,7 @@ struct TopNavBar: View {
                     HStack{
                         Text("Edit")
                             .offset(x:20,y:1)
+                            .foregroundColor(.editColor)
                         Image(systemName:"square.and.pencil")
                             .foregroundColor(purpleBg)
                             .frame(width: 50, height: 50, alignment: .center)
@@ -275,7 +286,8 @@ struct TopNavBar: View {
                 } else {
                     HStack{
                         Text("Done")
-                            .offset(x:20,y:1)
+                            .offset(x:20,y:1)                       .foregroundColor(.editColor)
+
                         Image(systemName: "checkmark")
                             .foregroundColor(Color.green)
                             .frame(width: 50, height: 50, alignment: .center)

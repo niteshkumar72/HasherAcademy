@@ -48,16 +48,16 @@ struct CourseDetailView: View {
                         }) {
                             
                             Image(systemName:"heart.fill")
-                            .foregroundColor(purpleBg)
+                                .foregroundColor(.white)
                             .frame(width: 50, height: 50, alignment: .center)
-                            .background(Color.gray.opacity(0.2))
+                            .background(Color.gray)
                             .cornerRadius(10)
                         } else {
                             
-                            Image(systemName: "heart")
-                            .foregroundColor(Color.black)
+                            Image(systemName: "heart.fill")
+                            .foregroundColor(Color.white)
                             .frame(width: 50, height: 50, alignment: .center)
-                            .background(Color.gray.opacity(0.2))
+                            .background(purpleBg)
                             .cornerRadius(10)
                             
                         }

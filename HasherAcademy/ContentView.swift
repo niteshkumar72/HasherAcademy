@@ -93,8 +93,10 @@ struct ContentView: View {
         var body: some View {
             TextField("Username", text: $username)
                 .padding()
-                .background(lightGreyColor)
+                .background(lightGreyClr)
                 .cornerRadius(5.0)
+                .colorScheme(.light)
+
         }
     }
     
@@ -103,8 +105,9 @@ struct ContentView: View {
         var body: some View {
             SecureField("Password",text: $password)
                 .padding()
-                .background(lightGreyColor)
+                .background(lightGreyClr)
                 .cornerRadius(5.0)
+                .colorScheme(.light)
                 .padding(.bottom,15)
         }
     }

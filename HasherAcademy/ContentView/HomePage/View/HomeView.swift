@@ -142,6 +142,7 @@ struct SearchView: View {
                     .padding()
                     .background(lightGreyClr)
                     .cornerRadius(5.0)
+                    .colorScheme(.light)
                 
                 Image(systemName: "magnifyingglass")
                     .frame(width: 55, height: 55)
